@@ -22,8 +22,8 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "dao")
-@ComponentScan(value = "service")
+@ComponentScan("dao")
+@ComponentScan("service")
 @ComponentScan("config")
 @ComponentScan("controller")
 public class JavaConfig implements WebMvcConfigurer {

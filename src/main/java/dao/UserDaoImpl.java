@@ -42,10 +42,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void delete(Long id) {
         User user = getById(id);
-        Session session = sessionFactory.openSession();
+        sessionFactory.getCurrentSession().delete(user);
+        /*Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(user);
         transaction.commit();
-        session.close();
+        session.close();*/
     }
 }
