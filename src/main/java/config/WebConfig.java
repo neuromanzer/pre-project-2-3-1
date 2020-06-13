@@ -1,3 +1,4 @@
+/*
 package config;
 
 
@@ -31,3 +32,4 @@ public class WebConfig implements WebMvcConfigurer {
         return resolver;
     }
 }
+*/
