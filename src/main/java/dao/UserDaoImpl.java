@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAll() {
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User", User.class);
+        TypedQuery<User> query = sessionFactory.openSession().createQuery("from User", User.class);
         return query.getResultList();
     }
 
@@ -31,22 +31,18 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        sessionFactory.getCurrentSession().save(user);
+        sessionFactory.openSession().save(user);
     }
 
     @Override
     public void edit(User user) {
-        sessionFactory.getCurrentSession().update(user);
+        sessionFactory.openSession().update(user);
     }
 
     @Override
     public void delete(Long id) {
-        User user = getById(id);
-        sessionFactory.getCurrentSession().delete(user);
-        /*Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = sessionFactory.openSession();
+        User user = session.get(User.class, id);
         session.delete(user);
-        transaction.commit();
-        session.close();*/
     }
 }
