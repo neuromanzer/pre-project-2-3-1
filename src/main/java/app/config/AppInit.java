@@ -1,4 +1,4 @@
-package web.config;
+package app.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -8,8 +8,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
-                //WebConfig.class
-                JavaConfig.class
+                WebConfig.class
         };
     }
 
@@ -17,8 +16,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[]{
-                //WebConfig.class
-                JavaConfig.class
+                WebConfig.class
         };
     }
 

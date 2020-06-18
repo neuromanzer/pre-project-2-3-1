@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01
 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +12,7 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div align="center">
     <h2>User Management Application</h2>
 
-    <h3><a href="/add">New User</a></h3>
+    <h3><a href="/admin/add">Add User</a></h3>
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
@@ -28,9 +28,15 @@ Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
                 <td>${user.password}</td>
                 <td>${user.occupation}</td>
                 <td>
-                    <a href="/edit?id=${user.id}">Edit</a>
+                    <form action="/admin/edit" method="post">
+                        <input type="text" hidden name="id" value="${user.id}">
+                        <input type="submit" value="Edit">
+                    </form>
                     &nbsp;&nbsp;&nbsp;
-                    <a href="/delete?id=${user.id}">Delete</a>
+                    <form action="/admin/delete" method="post">
+                        <input type="text" hidden name="id" value="${user.id}">
+                        <input type="submit" value="Delete">
+                    </form>
 
                 </td>
             </tr>
